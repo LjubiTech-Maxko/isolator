@@ -1,6 +1,7 @@
 library isolator;
 
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:isolator/src/action_reducer.dart';
 import 'package:isolator/src/backend/backend.dart';
@@ -185,7 +186,7 @@ Maybe you`ve seen Timeout exception?
         onForceUpdate();
       }
     } catch (error) {
-      print('''
+      log('''
 [isolator]
 [$runtimeType] Sync action error
 Data: ${objectToTypedString(backendMessage.data)}
@@ -216,7 +217,7 @@ Stacktrace: ${errorStackTraceToString(error)}
         onForceUpdate();
       }
     } catch (error) {
-      print('''
+      log('''
 [isolator]
 [$runtimeType] Async action error
 Data: ${objectToTypedString(backendMessage.data)}
