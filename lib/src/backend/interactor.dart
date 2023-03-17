@@ -32,7 +32,7 @@ abstract class InteractorOf<BackendType extends Backend> {
         ),
       );
     } catch (error) {
-      print('[$runtimeType | ${_backend.runtimeType}] ERROR: $error');
+      log('[$runtimeType | ${_backend.runtimeType}] ERROR: $error');
       log('''[ERROR] [isolator]
 [ERROR] Got an error in the interactor action:
 [ERROR] Interactor: "$runtimeType"

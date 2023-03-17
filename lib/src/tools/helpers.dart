@@ -52,6 +52,7 @@ String? errorStackTraceToString(dynamic error) {
     return error.stackTrace?.toString() ?? 'NO STACK TRACE';
   } catch (error) {
     // Handle error
+    return null;
   }
 }
 

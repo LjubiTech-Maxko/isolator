@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:isolator/src/backend/backend_argument.dart';
 import 'package:isolator/src/frontend/frontend.dart';
 import 'package:isolator/src/maybe.dart';
@@ -28,7 +30,7 @@ class Front with Frontend {
 
   Future<List<MockData>> computeListAsValue() async {
     final Maybe<List<MockData>> response = await run(event: Event.computeListAsValue);
-    print(response.runtimeType);
+    log(response.runtimeType.toString());
     return response.value;
   }
 

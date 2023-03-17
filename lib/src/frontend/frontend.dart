@@ -267,7 +267,7 @@ Stacktrace: ${errorStackTraceToString(error)}
     if (_timeTrackers.containsKey(code)) {
       final diff = message.timestamp.microsecondsSinceEpoch -
           _timeTrackers[code]!.microsecondsSinceEpoch;
-      print('Action ${message.code} took ${diff / 1000}ms');
+      log('Action ${message.code} took ${diff / 1000}ms');
       _timeTrackers.remove(code);
     }
   }

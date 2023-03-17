@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 const int _logPadding = 70;
 
 class _Benchmark {
@@ -6,7 +8,7 @@ class _Benchmark {
   void start(dynamic id) {
     final strId = id.toString();
     if (_starts.containsKey(strId)) {
-      print('Benchmark already have comparing with id=$strId in time');
+      log('Benchmark already have comparing with id=$strId in time');
     } else {
       _starts[strId] = DateTime.now().microsecondsSinceEpoch;
     }
@@ -15,9 +17,9 @@ class _Benchmark {
   void end(dynamic id) {
     final strId = id.toString();
     if (!_starts.containsKey(strId)) {
-      print('In Benchmark not placed comparing with id=$strId');
+      log('In Benchmark not placed comparing with id=$strId');
     } else {
-      print('''
+      log('''
 [BENCHMARK] $strId need ${(DateTime.now().microsecondsSinceEpoch - _starts[strId]!) / 1000}ms
 ''');
       _starts.remove(strId);
@@ -39,7 +41,7 @@ class _Benchmark {
   double endTimer(dynamic id) {
     final strId = id.toString();
     if (!_starts.containsKey(strId)) {
-      print('In Benchmark not placed comparing with id=$strId');
+      log('In Benchmark not placed comparing with id=$strId');
     }
     final diff =
         (DateTime.now().microsecondsSinceEpoch - _starts[strId]!) / 1000;
